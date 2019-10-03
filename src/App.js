@@ -4,7 +4,7 @@ import logo from "./assets/logo.svg";
 
 function App() {
   return (
-    <div className="containter">
+    <div className="container">
       <img src={logo} alt="AirCnc"/>
 
       <div className="content">
