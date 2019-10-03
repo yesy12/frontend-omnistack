@@ -13,7 +13,7 @@ function App() {
         </p>
         <form>
           <label htmlFor="email"> 
-            E-Mail *
+            E-MAIL *
           </label>
 
           <input 
