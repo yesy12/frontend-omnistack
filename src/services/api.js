@@ -1,8 +1,8 @@
 import axios from "axios";
 
-//baseUrl: "localhost:3000",
+//baseUrl: "https://node-js-yesy12.codeanyapp.com",
 const api = axios.create({
-    baseURL: "https://node-js-yesy12.codeanyapp.com"
+    baseURL: "http://127.0.0.1:3000/"
 })
 
 export default api;

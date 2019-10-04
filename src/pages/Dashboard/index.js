@@ -1,28 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import api from "../../services/api";
-import { loadOptions } from "@babel/core";
 
 const Dashboard = () => {
-        
+    const [spots,setSpots] = useState([])
+
     useEffect(()=>{
         const loadSpots = async () =>{
             const user_id = localStorage.getItem("user");
             const response = await api.get("/dashboard",{
                 headers : { user_id }
             })
-
-
-            console.log(response.data)
+            setSpots(response.data)
         }
-        
 
         loadSpots();
     },[])
 
+    const renderSpot = (value) =>{
+        return (
+            <li key={value._id}>
+                <header />
+                <strong>
+                    {value.company}
+                </strong>
+                <span>
+                    {value.price}
+                </span>
+            </li>
+        )
+    }
+
     return (
         <>
             <h1> Dashboard </h1>
-
+            <ul className="spot-list">
+                {spots.map(renderSpot)}
+            </ul>
         </>
     )
 }
