@@ -2,7 +2,17 @@ import React from 'react';
 import "./App.css";
 import logo from "./assets/logo.svg";
 
+import api from "./services/api";
+
 function App() {
+
+  const handleSubmit = (event) =>{
+    event.preventDefault;
+    console.log("HEllo world")
+  }
+  
+
+
   return (
     <div className="container">
       <img src={logo} alt="AirCnc"/>
@@ -11,7 +21,7 @@ function App() {
         <p> 
           Ofereça <strong>spots</strong> para programadores e encontre <strong>talentos</strong> para sua empresa
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="email"> 
             E-MAIL *
           </label>
