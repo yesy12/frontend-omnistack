@@ -7,10 +7,15 @@ import api from "./services/api";
 function App() {
   const [email,setEmail] = useState("")
 
-  const handleSubmit = (event) =>{
+   const  handleSubmit = async (event) =>{
     event.preventDefault();
     console.log(email)
     
+    const response = await api.post("/users",{
+      email
+    })
+
+    console.log(response)
 
   }
   
@@ -36,6 +41,7 @@ function App() {
             type="email" 
             id="email" 
             name="email" 
+            value={email}
             onChange={switchEmail}
             placeholder="Seu melhor e-mail" />
 
