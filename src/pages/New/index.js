@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import camera from "../../assets/camera.svg"
+
 
 const New = () => {
     const [company,setCompany ] = useState("");
@@ -26,6 +28,11 @@ const New = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
+                <label id="thumbnail">
+                    <input type="file" />
+                    <img src={camera} alt="Select img" />
+                </label>
+
                 <label htmlFor="company"> EMPRESA *</label>
                 <input 
                     type="text" 
