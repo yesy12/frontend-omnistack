@@ -42,7 +42,7 @@ const Dashboard = () => {
             </ul>
 
             <Link to="/new">
-                <button>Cadastrar novo spot</button>
+                <button className="btn">Cadastrar novo spot</button>
             </Link>
         </>
     )
