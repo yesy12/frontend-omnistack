@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import api from "../../services/api";
 
 
-const Login = () => {
+const Login = ({history}) => {
     const [email,setEmail] = useState("")
 
     const handleSubmit = async (event) =>{
@@ -17,7 +17,7 @@ const Login = () => {
         
         localStorage.setItem("user",_id);
     
-        
+        history.push("/dashboard");
       }
       
       const switchEmail = (event) =>{
