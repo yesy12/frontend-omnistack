@@ -1,6 +1,8 @@
 import React, { useEffect,useState } from "react";
 import api from "../../services/api";
 
+import "./style.css";
+
 const Dashboard = () => {
     const [spots,setSpots] = useState([])
 
