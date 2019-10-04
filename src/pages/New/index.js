@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import camera from "../../assets/camera.svg"
 
+import "./style.css";
 
 const New = () => {
     const [company,setCompany ] = useState("");
