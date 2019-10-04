@@ -63,6 +63,7 @@ const New = () => {
                     onChange={setPriceInfo}
                 />
 
+                <button type="submit" className="btn"> Cadastrar</button>
 
             </form>
         </>
