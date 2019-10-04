@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react";
 import api from "../../services/api";
-
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const Dashboard = () => {
@@ -40,6 +40,10 @@ const Dashboard = () => {
             <ul className="spot-list">
                 {spots.map(renderSpot)}
             </ul>
+
+            <Link to="/new">
+                <button>Cadastrar novo spot</button>
+            </Link>
         </>
     )
 }
