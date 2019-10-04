@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./App.css";
 import logo from "./assets/logo.svg";
 
 import api from "./services/api";
 
 function App() {
+  const [email,setEmail] = useState("")
 
   const handleSubmit = (event) =>{
-    event.preventDefault;
-    console.log("HEllo world")
+    event.preventDefault();
+    console.log(email)
+    
+
   }
   
+  const switchEmail = (event) =>{
+    setEmail(event.target.value);
+  } 
 
 
   return (
@@ -30,6 +36,7 @@ function App() {
             type="email" 
             id="email" 
             name="email" 
+            onChange={switchEmail}
             placeholder="Seu melhor e-mail" />
 
           <button className="btn" type="submit">Entrar</button>
