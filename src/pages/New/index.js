@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import camera from "../../assets/camera.svg"
 
 import "./style.css";
@@ -7,6 +7,13 @@ const New = () => {
     const [company,setCompany ] = useState("");
     const [techs,setTechs] = useState("");
     const [price,setPrice] = useState("");
+    const [thumbnail,setThumbnail] = useState(null);
+
+    const preview = useMemo(() => {
+        return thumbnail ? URL.createObjectURL(thumbnail) : null;
+        },[thumbnail]
+    )
+
 
     const handleSubmit = () => {
 
@@ -14,23 +21,32 @@ const New = () => {
 
 
     const setCompanyInfo = ( event ) => {
-        setCompany(event.targer.value);
+        setCompany(event.target.value);
     }
 
     const setTechsInfo = ( event ) => {
-        setTechs(event.targer.value);
+        setTechs(event.target.value);
     }
 
     const setPriceInfo = ( event ) => {
-        setPrice(event.targer.value);
+        setPrice(event.target.value);
     }
 
+    const setThumbnailInfo = ( event ) => {
+        setThumbnail(event.target.files[0]);
+    }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <label id="thumbnail">
-                    <input type="file" />
+                <label id="thumbnail" style={{
+                    backgroundImage : `url(${preview})`
+                }}>
+                    <input 
+                        type="file" 
+                        onChange={setThumbnailInfo}
+                        value={thumbnail}
+                    />
                     <img src={camera} alt="Select img" />
                 </label>
 
