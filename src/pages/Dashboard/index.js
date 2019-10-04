@@ -16,10 +16,13 @@ const Dashboard = () => {
         loadSpots();
     },[])
 
+
     const renderSpot = (value) =>{
         return (
             <li key={value._id}>
-                <header />
+                <header style={{
+                    backgroundImage : `url(${value.thumbnail_url})`
+                }} />
                 <strong>
                     {value.company}
                 </strong>
