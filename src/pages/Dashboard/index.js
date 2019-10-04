@@ -18,7 +18,6 @@ const Dashboard = () => {
         loadSpots();
     },[])
 
-
     const renderSpot = (value) =>{
         return (
             <li key={value._id}>
@@ -29,7 +28,7 @@ const Dashboard = () => {
                     {value.company}
                 </strong>
                 <span>
-                    {value.price}
+                    {value.price ? `R$ ${value.price}/dia` : "GRATUITO" }
                 </span>
             </li>
         )
