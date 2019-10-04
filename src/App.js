@@ -7,16 +7,18 @@ import api from "./services/api";
 function App() {
   const [email,setEmail] = useState("")
 
-   const  handleSubmit = async (event) =>{
+   const handleSubmit = async (event) =>{
     event.preventDefault();
-    console.log(email)
     
     const response = await api.post("/users",{
       email
     })
 
-    console.log(response)
+    const { _id } = response.data;
+    
+    localStorage.setItem("user",_id);
 
+    
   }
   
   const switchEmail = (event) =>{
