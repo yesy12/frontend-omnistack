@@ -18,6 +18,12 @@ const New = () => {
         },[thumbnail]
     )
 
+    const hasThumbnail = () => {
+        if(thumbnail){
+            return "has-thumbnail"
+        }
+    }
+
 
     const handleSubmit = () => {
 
@@ -43,7 +49,11 @@ const New = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <label id="thumbnail" style={{ backgroundImage : `url(${preview})` }}>
+                <label id="thumbnail" style={{ 
+                        backgroundImage : `url(${preview})` 
+                    }}
+                    className={"thumbnail"}
+                >
                     <input 
                         type="file" 
                         onChange={setThumbnailInfo} />
