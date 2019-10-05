@@ -5,7 +5,7 @@ import camera from "../../assets/camera.svg"
 import "./style.css";
 
 
-const New = () => {
+const New = ({ history }) => {
     const [company,setCompany ] = useState("");
     const [techs,setTechs] = useState("");
     const [price,setPrice] = useState("");
@@ -27,17 +27,21 @@ const New = () => {
     }
 
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         const data = new FormData();
+        const user_id = localStorage.getItem("user");
 
         data.append("thumbnail",thumbnail);
         data.append("techs",techs);
         data.append("price",price);
         data.append("company",company);
 
-        const reponse = await api.post("/spots",{
-            data
+        await api.post("/spots",data,{
+            headers : { user_id }
         })
+
+        history.push("/dashboard");
     }
 
 
@@ -59,7 +63,7 @@ const New = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} method="post">
                 <label id="thumbnail" style={{ 
                         backgroundImage : `url(${preview})` 
                     }}
