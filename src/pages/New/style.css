@@ -13,10 +13,10 @@ label#thumbnail input{
     display: none;
 }
 
-label#thumbnail.has-thumbnail{
+label#thumbnail.hasThumbnail{
     border: 0;
 }
 
-label#thumbnail.has-thumbnail img{
+label#thumbnail.hasThumbnail img{
     display: none;   
 }

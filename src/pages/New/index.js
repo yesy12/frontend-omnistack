@@ -20,7 +20,7 @@ const New = () => {
 
     const hasThumbnail = () => {
         if(thumbnail){
-            return "has-thumbnail"
+            return "hasThumbnail";
         }
     }
 
@@ -52,7 +52,7 @@ const New = () => {
                 <label id="thumbnail" style={{ 
                         backgroundImage : `url(${preview})` 
                     }}
-                    className={"thumbnail"}
+                    className={hasThumbnail()}
                 >
                     <input 
                         type="file" 
