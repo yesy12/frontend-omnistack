@@ -10,7 +10,11 @@ const New = () => {
     const [thumbnail,setThumbnail] = useState(null);
 
     const preview = useMemo(() => {
-        return thumbnail ? URL.createObjectURL(thumbnail) : null;
+        if(thumbnail){
+            return URL.createObjectURL(thumbnail);
+        }else{
+            return null;
+        }
         },[thumbnail]
     )
 
@@ -39,14 +43,10 @@ const New = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <label id="thumbnail" style={{
-                    backgroundImage : `url(${preview})`
-                }}>
+                <label id="thumbnail" style={{ backgroundImage : `url(${preview})` }}>
                     <input 
                         type="file" 
-                        onChange={setThumbnailInfo}
-                        value={thumbnail}
-                    />
+                        onChange={setThumbnailInfo} />
                     <img src={camera} alt="Select img" />
                 </label>
 
