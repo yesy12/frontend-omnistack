@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from "react";
+import api from "../../services/api";
 import camera from "../../assets/camera.svg"
 
 import "./style.css";
+
 
 const New = () => {
     const [company,setCompany ] = useState("");
@@ -25,8 +27,17 @@ const New = () => {
     }
 
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        const data = new FormData();
 
+        data.append("thumbnail",thumbnail);
+        data.append("techs",techs);
+        data.append("price",price);
+        data.append("company",company);
+
+        const reponse = await api.post("/spots",{
+            data
+        })
     }
 
 
